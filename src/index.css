@@ -1,0 +1,120 @@
+/* src/index.css */
+
+/* Import Tailwind CSS v4 */
+@import "tailwindcss";
+
+/* Your custom theme configuration (optional) */
+@theme {
+  /* Custom colors */
+  --color-brand-blue: #1e40af;
+  --color-brand-light: #3b82f6;
+  --color-brand-dark: #1e3a8a;
+  
+  /* Custom font families */
+  --font-display: 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  
+  /* Custom spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  
+  /* Custom breakpoints */
+  --breakpoint-xs: 475px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+  
+  /* Custom border radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  
+  /* Custom shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/* Custom utility classes (optional) */
+@layer utilities {
+  .gradient-brand {
+    background: linear-gradient(135deg, theme(colors.brand.blue), theme(colors.brand.light));
+  }
+  
+  .text-gradient {
+    background: linear-gradient(135deg, theme(colors.brand.blue), theme(colors.brand.light));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .container-custom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .btn-primary {
+    @apply bg-brand-blue hover:bg-brand-dark text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-300;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-lg p-6 border border-gray-100;
+  }
+}
+
+/* Custom components (optional) */
+@layer components {
+  .navbar {
+    @apply bg-white shadow-lg border-b border-gray-100;
+  }
+  
+  .hero-section {
+    @apply min-h-screen bg-gradient-to-br from-blue-50 to-blue-100;
+  }
+  
+  .service-card {
+    @apply bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 p-6 text-center;
+  }
+}
+
+/* Global styles */
+body {
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
