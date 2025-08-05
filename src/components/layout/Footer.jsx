@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <div className="bg-[#000] text-white ">
-      <div className="relative pt-15 flex justify-between">
+    <div className="bg-[#000] text-white mt-20 ">
+      <div className="relative pt-15 flex h-full max-h-[400px] border border-red-600 ">
         <img
-          className="absolute bottom-0 left-0 max-w-[738px] "
+          className="absolute top-20 left-0 max-w-[738px] "
           src={halfcircle}
           alt=""
         />

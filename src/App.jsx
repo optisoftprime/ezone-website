@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 import Navbar from "./components/layout/Navbar";
 import Home from "./pages/hero";
@@ -12,6 +12,11 @@ import LSMPage from "./pages/sub-pages/LSMPage";
 import Payroll from "./pages/sub-pages/Payroll";
 import MutuaryManagement from "./pages/sub-pages/MutuaryManagement";
 import ProcessWorkFlow from "./pages/sub-pages/ProcessWorkFlow";
+import AboutUs from "./pages/about-us/AboutUs";
+import ContactUs from "./pages/contact/ContactUs";
+import SupportAndServices from "./pages/support-and-services/SupportAndServices";
+import NormalContact from "./pages/support-and-services/NormalContact";
+import Chat from "./pages/support-and-services/Chat";
 // const Home = lazy(() => import("../src/pages/hero"));
 
 // import About from './pages/About'
@@ -20,9 +25,12 @@ import ProcessWorkFlow from "./pages/sub-pages/ProcessWorkFlow";
 // import NotFound from './pages/NotFound'
 
 function App() {
+  const location = useLocation();
+  const isProductLocation = location.pathname.includes("/products");
+
   return (
     <div className="min-h-screen">
-      <Navbar />
+      {isProductLocation && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products/cba" element={<CBAPage />} />
@@ -40,9 +48,12 @@ function App() {
           path="/products/process-workflow"
           element={<ProcessWorkFlow />}
         />
-        {/* <Route path="/support-and-services" element={<Services />} />
-        <Route path="/about-us" element={<Contact />} />
-        <Route path="/contact" element={<Contact />} /> */}
+        <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/support-and-services" element={<SupportAndServices />}>
+          <Route index element={<NormalContact />} />
+          <Route path="chat" element={<Chat />} />
+        </Route>
         {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
       <Footer />
