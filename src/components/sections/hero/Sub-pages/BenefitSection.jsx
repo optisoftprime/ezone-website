@@ -15,25 +15,33 @@ export default function BenefitSection({
   return (
     <div
       style={{ background: bgColor }}
-      className="flex items-center justify-center relative gap-x-20 px-35 py-15 mb-15"
+      className="flex flex-wrap gap-y-5 md:flex-nowrap items-center justify-center relative gap-x-20 px-4 md:px-35 py-15 mb-15"
     >
       <img
-        className="absolute max-w-[350px] left-0 z-0 "
+        className="absolute hidden sm:block max-w-[350px] left-0 z-0 "
         src={ellipse}
         alt=""
       />
       <div className="max-w-[600px] w-full ">
         <div className="relative">
-          <img className="relative max-w-[500px] " src={Desktop} alt="" />
           <img
-            className="absolute top-[12.6px] left-[16px] max-w-[475px] "
+            className="relative w-full max-w-[500px] "
+            src={Desktop}
+            alt=""
+          />
+          <img
+            className="absolute w-full top-[6px] md:top-[12.6px] left-[2px] md:left-[16px] max-w-[475px] "
             src={image}
             alt=""
           />
         </div>
-        <div className="flex items-cente justify-center gap-x-10">
-          <img className="z-10" src={Keyboard} alt="keyboard" />
-          <img src={Mouse} alt="mouse" />
+        <div className="flex items-cente justify-center gap-x-3 md:gap-x-10">
+          <img
+            className="z-10 max-w-[220px] md:max-w-[250px] w-full"
+            src={Keyboard}
+            alt="keyboard"
+          />
+          <img className="max-w-[70px] w-full " src={Mouse} alt="mouse" />
         </div>
       </div>
       <div className="max-w-[550px] flex flex-col gap-y-8 ">

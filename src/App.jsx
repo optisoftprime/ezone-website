@@ -26,11 +26,14 @@ import Chat from "./pages/support-and-services/Chat";
 
 function App() {
   const location = useLocation();
+  const isHomePage = location.pathname === "/";
   const isProductLocation = location.pathname.includes("/products");
+
+  const shouldShowNavbar = isHomePage || isProductLocation;
 
   return (
     <div className="min-h-screen">
-      {isProductLocation && <Navbar />}
+      {shouldShowNavbar && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products/cba" element={<CBAPage />} />

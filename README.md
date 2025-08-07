@@ -10,3 +10,34 @@ Currently, two official plugins are available:
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+# Ezone Website
+
+A modern React-based web application built with Vite and TailwindCSS, featuring interactive UI components and dynamic routing.
+
+---
+
+## 🚀 Tech Stack
+
+- **React 19**
+- **Vite**
+- **TailwindCSS**
+- **React Router v7**
+- **Framer Motion**
+- **Ant Design (AntD)**
+- **Lucide Icons**
+- **React Leaflet** (for maps)
+- **ESLint** (for linting)
+
+---
+
+## 📦 Installation
+
+```bash
+
+git clone https://github.com/your-username/ezone-website.git
+
+cd ezone-website
+
+npm install
+```

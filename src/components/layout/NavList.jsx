@@ -89,6 +89,8 @@ export default function NavList() {
     console.log(path);
   };
 
+  const pathIncludes = (path) => location.pathname.includes(path);
+
   const handleDropDown = () => {
     setDropDown((prev) => !prev);
   };
@@ -97,11 +99,15 @@ export default function NavList() {
     <div className="relative">
       <ul className="flex flex-col gap-y-3 ">
         {navLists.map((navMenu) => (
-          <li key={navMenu.path}>
+          <li className="p-2" key={navMenu.path}>
             <Link
               to={navMenu.path}
-              onMouseOver={handleDropDown}
-              className="text-[#292929] text-base font-normal flex items-center gap-x-1 "
+              onClick={handleDropDown}
+              className={`${
+                pathIncludes(navMenu.path)
+                  ? "!bg-blue-600 !text-white"
+                  : "!text-[#292929] "
+              }text-base font-normal flex items-center gap-x-5`}
             >
               <span>{navMenu.name}</span>
               {navMenu.subMenus && (
@@ -112,24 +118,17 @@ export default function NavList() {
             {navMenu.subMenus && dropDown && (
               <div
                 // onMouseOut={handleDropDown}
-                className="bg-white absolute -right-55 top-10 z-20 p-10 max-h-[450px] overflow-x-hidden overflow-y-auto shadow-2xl space-y-3 "
+                className="ml-8 mt-2 space-y-2"
               >
                 <p>Ezone Products</p>
-                <ul className="ml-8 mt-2 space-y-2">
+                <ul className="">
                   {navMenu.subMenus.map((childNavMenu) => (
                     <li
                       key={childNavMenu.path}
                       onClick={() => handleRoute(childNavMenu.path)}
-                      className="max-w-[300px] p-3 bg-[#F7FCFF] rounded-sm cursor-pointer flex gap-y-2 flex-col "
+                      className="max-w-[300px] p-1 rounded-sm cursor-pointer flex gap-y-2 flex-col "
                     >
                       <div className="flex items-center gap-x-2">
-                        <div className="w-[40px] h-[40px] bg-[#048DFD] flex items-center justify-center rounded-full ">
-                          <img
-                            src={childNavMenu.icon}
-                            className="max-w-[30px] "
-                            alt="icon"
-                          />
-                        </div>
                         <div>
                           <p>Ezone</p>
                           <h4 className="text-[#1B1B1B] text-base font-extrabold uppercase ">
@@ -137,17 +136,15 @@ export default function NavList() {
                           </h4>
                         </div>
                       </div>
-                      <p className="text-sm text-[#5C5C5C] font-normal ">
-                        {childNavMenu.text}
-                      </p>
+
                       <Link
                         to={childNavMenu.path}
                         className="flex items-center gap-x-1 text-base font-medium text-[#0C0292] "
                       >
-                        <span>TRY NOW</span>
+                        {/* <span>TRY NOW</span>
                         <span>
                           <ChevronRight />
-                        </span>
+                        </span> */}
                       </Link>
                     </li>
                   ))}

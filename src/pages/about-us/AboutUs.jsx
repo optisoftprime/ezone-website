@@ -4,7 +4,7 @@ import logo from "../../assets/img/logo.png";
 import { useState } from "react";
 import send from "../../assets/img/send-icon.svg";
 import card from "../../assets/img/card-icon.svg";
-import { ChevronDown, ChevronRight, ChevronUp, Dot } from "lucide-react";
+import { ChevronDown, ChevronRight, ChevronUp, Dot, Menu } from "lucide-react";
 // import frame from "../../assets/img/frame.svg"
 import frame1 from "../../assets/img/frame1.svg";
 import frame2 from "../../assets/img/frame2.svg";
@@ -13,6 +13,8 @@ import frame4 from "../../assets/img/frame4.svg";
 import frame5 from "../../assets/img/frame5.svg";
 import frame6 from "../../assets/img/frame6.svg";
 import { div } from "framer-motion/client";
+import { Drawer } from "antd";
+import NavList from "../../components/layout/NavList";
 
 const navLists = [
   {
@@ -131,10 +133,15 @@ function AboutUs() {
   const [dropDown, setDropDown] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const [drawerVisible, setDrawerVisible] = useState(false);
 
   const handleRoute = (path) => {
     navigate(path);
     console.log(path);
+  };
+
+  const toggleDrawer = () => {
+    setDrawerVisible((prev) => !prev);
   };
 
   const handleDropDown = () => {
@@ -148,16 +155,16 @@ function AboutUs() {
     <div>
       <div className="header1">
         <nav className="">
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto px-4 md:px-6">
             <div className="flex justify-between items-center py-4">
               <Link
                 to="/"
-                className="text-2xl font-bold text-blue-600 px-3 py-1.5 bg-white rounded-[8px]"
+                className="text-2xl px-2 py-1 bg-white rounded-[10px] font-bold text-blue-600"
               >
                 <img src={logo} />
               </Link>
 
-              <div className="relative">
+              <div className="relative hidden md:block">
                 <ul className="flex gap-x-8 ">
                   {navLists.map((navMenu) => (
                     <li key={navMenu.path}>
@@ -223,20 +230,35 @@ function AboutUs() {
                   ))}
                 </ul>
               </div>
-              <div className="flex gap-x-5 items-center">
-                <Link>Login</Link>
-                <Link className="px-5 py-2 rounded-[20px] bg-[#0C0292] text-white ">
-                  Sign Up
-                </Link>
+              <div className="hidden md:block">
+                <div className="flex gap-x-5 items-center">
+                  <Link>Login</Link>
+                  <Link className="px-5 py-2 rounded-[20px] bg-[#0C0292] text-white ">
+                    Sign Up
+                  </Link>
+                </div>
+              </div>
+              <div className="md:hidden">
+                <Menu onClick={toggleDrawer} />
               </div>
             </div>
           </div>
+          <Drawer
+            // title="Menu"
+            placement="left"
+            onClose={toggleDrawer}
+            open={drawerVisible}
+            className="md:hidden w-[70%]"
+            style={{ padding: 0 }}
+          >
+            <NavList />
+          </Drawer>
         </nav>
         <div className="flex items-center justify-center pt-30">
           <h1 className="text-[30px] font-medium capitalize ">about us</h1>
         </div>
       </div>
-      <div className="px-30 py-15 flex flex-col gap-y-25 ">
+      <div className="px-4 md:px-30 py-15 flex flex-col gap-y-25 ">
         <div className="space-y-10">
           <div className="inline-block">
             <div className="rounded-full text-[#151414] bg-white shadow-md items-center gap-x-1 flex ">
@@ -245,7 +267,7 @@ function AboutUs() {
               <Dot color="#0C0292" size={60} />
             </div>
           </div>
-          <div className="flex items-center gap-x-10 justify-between">
+          <div className="flex items-center flex-wrap gap-y md:flex-nowrap gap-x-10 justify-between">
             <h2 className="text-[30px] font-normal max-w-[370px] ">
               Why Coose Ezone- What Set Us Apart
             </h2>
@@ -262,7 +284,7 @@ function AboutUs() {
           </div>
         </div>
         <div>
-          <ul className="flex items-center gap-x-4 justify-between">
+          <ul className="flex items-center flex-wrap gap-y-5  gap-x-4 justify-between">
             {aboutData.map((data) => (
               <li
                 key={data.title}
@@ -280,15 +302,19 @@ function AboutUs() {
           </ul>
         </div>
       </div>
-      <div className="px-60 mb-[10rem] py-10  relative">
-        <img className="relative max-w-[500px] " src={frame1} alt="" />
+      <div className="md:px-60 px-4 py-10  relative">
         <img
-          className="absolute top-20 right-60 max-w-[400px] "
+          className="relative w-full max-w-[500px] mb-5 "
+          src={frame1}
+          alt=""
+        />
+        <img
+          className="md:absolute w-full md:top-20 md:right-60 max-w-[400px] "
           src={frame2}
           alt=""
         />
       </div>
-      <div className="mb-[20rem]">
+      <div className="">
         <div className="flex items-center flex-col gap-y-4 justify-center">
           <div className="inline-block">
             <div className="rounded-full text-[#151414] bg-white shadow-md items-center gap-x-1 flex ">
@@ -299,7 +325,7 @@ function AboutUs() {
           </div>
           <h3 className="capitalize text-[26px] font-normal ">team members</h3>
         </div>
-        <div className="flex items-center mt-12 justify-center gap-x-4">
+        <div className="flex items-center flex-wrap md:flex-nowrap gap-y-5 mt-12 justify-center gap-x-4">
           {teamMembers.map((member) => (
             <div className="relative bg-[#E1E1E1] pb-15 " key={member.image}>
               <img className="max-w-[200px] " src={member.image} alt="" />

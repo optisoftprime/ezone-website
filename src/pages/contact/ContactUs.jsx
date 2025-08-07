@@ -4,9 +4,11 @@ import logo from "../../assets/img/logo.png";
 import { useState } from "react";
 import send from "../../assets/img/send-icon.svg";
 import card from "../../assets/img/card-icon.svg";
-import { ChevronDown, ChevronRight, ChevronUp, Dot } from "lucide-react";
+import { ChevronDown, ChevronRight, ChevronUp, Dot, Menu } from "lucide-react";
 import Form from "./Form";
 import Map from "./Map";
+import { Drawer } from "antd";
+import NavList from "../../components/layout/NavList";
 // import frame from "../../assets/img/frame.svg"
 
 const navLists = [
@@ -88,6 +90,11 @@ function ContactUs() {
   const [dropDown, setDropDown] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const [drawerVisible, setDrawerVisible] = useState(false);
+
+  const toggleDrawer = () => {
+    setDrawerVisible((prev) => !prev);
+  };
 
   const handleRoute = (path) => {
     navigate(path);
@@ -103,18 +110,18 @@ function ContactUs() {
   };
   return (
     <div className="relative">
-      <div className="header2 relative">
+      <div className="header2 relative w-full">
         <nav className="">
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto px-4 md:px-6">
             <div className="flex justify-between items-center py-4">
               <Link
                 to="/"
-                className="text-2xl font-bold text-blue-600 px-3 py-1.5 bg-white rounded-[8px]"
+                className="text-2xl px-2 py-1 bg-white rounded-[10px] font-bold text-blue-600"
               >
                 <img src={logo} />
               </Link>
 
-              <div className="relative">
+              <div className="relative hidden md:block">
                 <ul className="flex gap-x-8 ">
                   {navLists.map((navMenu) => (
                     <li key={navMenu.path}>
@@ -180,14 +187,29 @@ function ContactUs() {
                   ))}
                 </ul>
               </div>
-              <div className="flex gap-x-5 items-center">
-                <Link>Login</Link>
-                <Link className="px-5 py-2 rounded-[20px] bg-[#0C0292] text-white ">
-                  Sign Up
-                </Link>
+              <div className="hidden md:block">
+                <div className="flex gap-x-5 items-center">
+                  <Link>Login</Link>
+                  <Link className="px-5 py-2 rounded-[20px] bg-[#0C0292] text-white ">
+                    Sign Up
+                  </Link>
+                </div>
+              </div>
+              <div className="md:hidden">
+                <Menu onClick={toggleDrawer} />
               </div>
             </div>
           </div>
+          <Drawer
+            // title="Menu"
+            placement="left"
+            onClose={toggleDrawer}
+            open={drawerVisible}
+            className="md:hidden w-[70%]"
+            style={{ padding: 0 }}
+          >
+            <NavList />
+          </Drawer>
         </nav>
         <div className="flex items-center justify-center pt-30">
           <h1 className="text-[30px] font-medium capitalize ">contact us</h1>
@@ -196,8 +218,8 @@ function ContactUs() {
       <div className="relative">
         <Form />
       </div>
-      <div className="my-[30rem] ">
-        <p className="text-base font-medium text-[#3D3C7F] ml-15 ">
+      <div className="md:my-[30rem] mt-5 ">
+        <p className="text-base font-medium text-[#3D3C7F] md:ml-15 mx-3 ">
           4TH FLOOR, POLARIS BUILDING, 30 MARINA STREET
         </p>
         <Map />

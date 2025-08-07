@@ -11,8 +11,8 @@ import React from "react";
 
 export default function Form() {
   return (
-    <div className="bg-[#F5F5F5] p-10 absolute flex gap-x-10 -bottom-[27rem] left-60 max-w-[1000px] justify-between rounded-[20px] ">
-      <div className="max-w-[500px] ">
+    <div className="bg-[#F5F5F5] md:p-10 p-3 md:absolute flex flex-wrap md:flex-nowrap gap-y-5 gap-x-10 md:-bottom-[10rem] left-60 max-w-[1000px] justify-between rounded-[20px] ">
+      <div className="max-w-[500px] w-full ">
         <div className="mb-8 ">
           <h3 className="text-[#008DFF] text-[18px] font-medium mb-2 capitalize ">
             get in touch
@@ -78,15 +78,15 @@ export default function Form() {
           </div>
         </div>
       </div>
-      <div className="min-w-[350px] ">
+      <div className="min-w-[400px] w-full ">
         <h3 className="text-[#008DFF] mb-4 text-[18px] font-medium capitalize ">
           send us message
         </h3>
-        <form className="max-w-[400px] flex flex-col gap-y-4 " action="">
+        <form className="max-w-[400px] w-full flex flex-col gap-y-4 " action="">
           <div className="flex flex-col gap-y-2">
             <span className="font-medium text-sm ">Name</span>
             <input
-              className="w-full h-[35px] max-w-[350px] rounded-[7px] px-1.5 border border-[#BFBEBE] outline-0 "
+              className="w-full h-[35px] max-w-[600px] rounded-[7px] px-1.5 border border-[#BFBEBE] outline-0 "
               type="text"
               placeholder="Enter your name"
             />
@@ -94,7 +94,7 @@ export default function Form() {
           <div className="flex flex-col gap-y-2">
             <span className="font-medium text-sm ">Email</span>
             <input
-              className="w-full h-[35px] max-w-[350px] rounded-[7px] px-1.5 border border-[#BFBEBE] outline-0 "
+              className="w-full h-[35px] max-w-[600px] rounded-[7px] px-1.5 border border-[#BFBEBE] outline-0 "
               type="text"
               placeholder="Enter your email"
             />
@@ -102,7 +102,7 @@ export default function Form() {
           <div className="flex flex-col gap-y-2">
             <span className="font-medium text-sm ">Name</span>
             <input
-              className="w-full h-[35px] max-w-[350px] rounded-[7px] px-1.5 border border-[#BFBEBE] outline-0 "
+              className="w-full h-[35px] max-w-[600px] rounded-[7px] px-1.5 border border-[#BFBEBE] outline-0 "
               type="text"
               placeholder="Enter your name"
             />
@@ -110,7 +110,7 @@ export default function Form() {
           <div className="flex flex-col gap-y-2">
             <span className="font-medium text-sm ">Name</span>
             <textarea
-              className="w-full h-[80px] max-w-[350px] rounded-[7px] px-1.5 border border-[#BFBEBE] outline-0 "
+              className="w-full h-[80px] max-w-[600px] rounded-[7px] px-1.5 border border-[#BFBEBE] outline-0 "
               placeholder="Enter message"
               name=""
               id=""

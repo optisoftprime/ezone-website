@@ -18,7 +18,7 @@ export default function NormalContact() {
     <div>
       <MessageModal openModal={isOpen} />
 
-      <div className=" px-50 py-10 ">
+      <div className=" px-4 md:px-50 py-10 ">
         <h3 className="text-[20px] font-medium mt-5 ">
           frequently asked
           <span className="px-2 py-1 rounded-[8px] bg-[#008DFF] text-white !rotate-45  ">
