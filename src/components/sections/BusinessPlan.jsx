@@ -39,7 +39,7 @@ const AdvancedDatas = [
 
 export default function BusinessPlan() {
   return (
-    <div className="pt-20 pb-15 px-15">
+    <div className="pt-20 pb-15 px-4 md:px-15">
       <div className="flex items-center justify-center flex-col gap-y-3 max-w-[900px] mx-auto text-center ">
         <h4 className="text-lg font-medium text-[#1B1B1B] ">
           Flexible Plan For Every Business
@@ -49,7 +49,7 @@ export default function BusinessPlan() {
           you're just starting out or scaling operations. No hidden fees, just
           powerful features.
         </p>
-        <div className="text-sm font-normal max-w-[439px] border-[#000] border flex items-center mt-20 ">
+        <div className="text-sm font-normal w-full max-w-[439px] border-[#000] border flex items-center mt-20 ">
           <p className="bg-[#000] text-white px-15 py-2 ">Monthly</p>
           <p className="px-10 py-1.5 flex items-center gap-x-4">
             <span>Yearly</span>
@@ -57,8 +57,8 @@ export default function BusinessPlan() {
           </p>
         </div>
       </div>
-      <div className="flex gap-x-8 max-w-[1000px] mt-15 mx-auto justify-between">
-        <div className="pt-20">
+      <div className="flex gap-x-8 gap-y-5 flex-wrap md:flex-nowrap max-w-[1000px] mt-15 mx-auto justify-between">
+        <div className="md:pt-20">
           <BusinessPlanCard
             secondChildren={
               <ul className="flex flex-col gap-y-4">
@@ -132,7 +132,7 @@ export default function BusinessPlan() {
             <div></div>
           </BusinessPlanCard>
         </div>
-        <div className="pt-20">
+        <div className="md:pt-20">
           <BusinessPlanCard
             secondChildren={
               <ul className="flex flex-col gap-y-3">
