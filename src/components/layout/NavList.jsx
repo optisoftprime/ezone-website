@@ -89,25 +89,32 @@ export default function NavList() {
     console.log(path);
   };
 
-  const pathIncludes = (path) => location.pathname.includes(path);
+  const isActive = (path) => location.pathname.includes(path);
 
-  const handleDropDown = () => {
-    setDropDown((prev) => !prev);
+  const handleOpenDropDown = () => {
+    setDropDown(true);
+  };
+  const handleCloseDropDown = () => {
+    setDropDown(false);
   };
 
   return (
     <div className="relative">
       <ul className="flex flex-col gap-y-3 ">
         {navLists.map((navMenu) => (
-          <li className="p-2" key={navMenu.path}>
+          <li className="py-2" key={navMenu.path}>
             <Link
               to={navMenu.path}
-              onClick={handleDropDown}
+              onMouseOver={
+                navMenu.subMenus && !dropDown
+                  ? handleOpenDropDown
+                  : handleCloseDropDown
+              }
               className={`${
-                pathIncludes(navMenu.path)
-                  ? "!bg-blue-600 !text-white"
+                isActive(navMenu.path)
+                  ? "!bg-blue-600 !text-[#fff] "
                   : "!text-[#292929] "
-              }text-base font-normal flex items-center gap-x-5`}
+              }text-base font-normal p-2 rounded-[5px] flex items-center gap-x-5`}
             >
               <span>{navMenu.name}</span>
               {navMenu.subMenus && (
@@ -118,7 +125,7 @@ export default function NavList() {
             {navMenu.subMenus && dropDown && (
               <div
                 // onMouseOut={handleDropDown}
-                className="ml-8 mt-2 space-y-2"
+                className="ml-5 mt-2 space-y-2"
               >
                 <p>Ezone Products</p>
                 <ul className="">
@@ -126,12 +133,16 @@ export default function NavList() {
                     <li
                       key={childNavMenu.path}
                       onClick={() => handleRoute(childNavMenu.path)}
-                      className="max-w-[300px] p-1 rounded-sm cursor-pointer flex gap-y-2 flex-col "
+                      className={`max-w-[300px] p-1 rounded-[5px] cursor-pointer flex gap-y-2 flex-col ${
+                        isActive(childNavMenu.path)
+                          ? "!bg-blue-600 !text-[#fff] "
+                          : "!text-[#292929] "
+                      }  `}
                     >
                       <div className="flex items-center gap-x-2">
                         <div>
                           <p>Ezone</p>
-                          <h4 className="text-[#1B1B1B] text-base font-extrabold uppercase ">
+                          <h4 className=" text-sm font-extrabold uppercase ">
                             {childNavMenu.name}
                           </h4>
                         </div>

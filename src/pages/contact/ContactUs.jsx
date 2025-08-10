@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/img/logo.png";
 import { useState } from "react";
@@ -101,13 +101,17 @@ function ContactUs() {
     console.log(path);
   };
 
-  const handleDropDown = () => {
-    setDropDown((prev) => !prev);
+  const handleOpenDropDown = () => {
+    setDropDown(true);
   };
+  const handleCloseDropDown = () => {
+    setDropDown(false);
+  };
+  useEffect(() => {
+    setDropDown(false);
+  }, [location.pathname]);
 
-  const isActive = (path) => {
-    return location.pathname === path;
-  };
+  const isActive = (path) => location.pathname.includes(path);
   return (
     <div className="relative">
       <div className="header2 relative w-full">
@@ -127,8 +131,16 @@ function ContactUs() {
                     <li key={navMenu.path}>
                       <Link
                         to={navMenu.path}
-                        onMouseOver={handleDropDown}
-                        className="text-[#fff] text-base font-normal flex items-center gap-x-1 "
+                        onMouseOver={
+                          navMenu.subMenus && !dropDown
+                            ? handleOpenDropDown
+                            : handleCloseDropDown
+                        }
+                        className={`text-[#fff] text-base capitalize font-normal flex items-center gap-x-1 ${
+                          isActive(navMenu.path)
+                            ? "border-[#fff] border-b-2 "
+                            : ""
+                        }`}
                       >
                         <span>{navMenu.name}</span>
                         {navMenu.subMenus && (
@@ -211,14 +223,14 @@ function ContactUs() {
             <NavList />
           </Drawer>
         </nav>
-        <div className="flex items-center justify-center pt-30">
+        <div className="flex items-center justify-center pt-30 relative">
           <h1 className="text-[30px] font-medium capitalize ">contact us</h1>
         </div>
       </div>
-      <div className="relative">
+      <div className="relative md:pb-130">
         <Form />
       </div>
-      <div className="md:my-[30rem] mt-5 ">
+      <div className="">
         <p className="text-base font-medium text-[#3D3C7F] md:ml-15 mx-3 ">
           4TH FLOOR, POLARIS BUILDING, 30 MARINA STREET
         </p>

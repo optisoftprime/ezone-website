@@ -17,7 +17,7 @@ A modern React-based web application built with Vite and TailwindCSS, featuring 
 
 ---
 
-## 🚀 Tech Stack
+## Tech Stack
 
 - **React 19**
 - **Vite**
@@ -31,7 +31,7 @@ A modern React-based web application built with Vite and TailwindCSS, featuring 
 
 ---
 
-## 📦 Installation
+## Installation
 
 ```bash
 

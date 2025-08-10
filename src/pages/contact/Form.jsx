@@ -11,7 +11,7 @@ import React from "react";
 
 export default function Form() {
   return (
-    <div className="bg-[#F5F5F5] md:p-10 p-3 md:absolute flex flex-wrap md:flex-nowrap gap-y-5 gap-x-10 md:-bottom-[10rem] left-60 max-w-[1000px] justify-between rounded-[20px] ">
+    <div className="bg-[#F5F5F5] md:p-10 p-3 md:absolute flex flex-wrap md:flex-nowrap gap-y-5 gap-x-10 md:bottom-[4rem] left-75 max-w-[1000px] justify-between rounded-[20px] ">
       <div className="max-w-[500px] w-full ">
         <div className="mb-8 ">
           <h3 className="text-[#008DFF] text-[18px] font-medium mb-2 capitalize ">
@@ -78,7 +78,7 @@ export default function Form() {
           </div>
         </div>
       </div>
-      <div className="min-w-[400px] w-full ">
+      <div className="max-w-[600px] w-full ">
         <h3 className="text-[#008DFF] mb-4 text-[18px] font-medium capitalize ">
           send us message
         </h3>
