@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/img/logo.png";
 import { useState } from "react";
@@ -109,23 +109,23 @@ const aboutData = [
 const teamMembers = [
   {
     name: "Mr Tunde Banks",
+    position: "Managing Director",
+    image: frame6,
+  },
+  {
+    name: "Mr Habudul Opeymi",
     position: "CEO, Director",
     image: frame5,
   },
   {
-    name: "Mr Tunde Banks",
-    position: "CEO, Director",
-    image: frame6,
-  },
-  {
-    name: "Mr Tunde Banks",
-    position: "CEO, Director",
-    image: frame3,
-  },
-  {
-    name: "Mr Tunde Banks",
-    position: "CEO, Director",
+    name: "Mrs Okoafor Jessica",
+    position: "CTO, Director",
     image: frame4,
+  },
+  {
+    name: "Mr Ovuta Samuel",
+    position: "Sales Director",
+    image: frame3,
   },
 ];
 
@@ -141,16 +141,20 @@ function AboutUs() {
   };
 
   const toggleDrawer = () => {
-    setDrawerVisible((prev) => !prev);
+    setDrawerVisible(true);
   };
 
-  const handleDropDown = () => {
-    setDropDown((prev) => !prev);
+  const handleOpenDropDown = () => {
+    setDropDown(true);
   };
+  const handleCloseDropDown = () => {
+    setDropDown(false);
+  };
+  useEffect(() => {
+    setDropDown(false);
+  }, [location.pathname]);
 
-  const isActive = (path) => {
-    return location.pathname === path;
-  };
+  const isActive = (path) => location.pathname.includes(path);
   return (
     <div>
       <div className="header1">
@@ -170,8 +174,16 @@ function AboutUs() {
                     <li key={navMenu.path}>
                       <Link
                         to={navMenu.path}
-                        onMouseOver={handleDropDown}
-                        className="text-[#fff] text-base font-normal flex items-center gap-x-1 "
+                        onMouseOver={
+                          navMenu.subMenus && !dropDown
+                            ? handleOpenDropDown
+                            : handleCloseDropDown
+                        }
+                        className={`text-[#fff] text-base capitalize font-normal flex items-center gap-x-1 ${
+                          isActive(navMenu.path)
+                            ? "border-[#fff] border-b-2 "
+                            : ""
+                        }`}
                       >
                         <span>{navMenu.name}</span>
                         {navMenu.subMenus && (
@@ -288,7 +300,7 @@ function AboutUs() {
             {aboutData.map((data) => (
               <li
                 key={data.title}
-                className="flex items-center gap-x-4 py-1.5 px-3  rounded-[30px] shadow-lg"
+                className="flex items-center max-w-[400px] gap-x-4 py-1.5 px-3  rounded-[30px] shadow-lg"
               >
                 <div className="w-[40px] h-[40px] bg-[#048DFD] flex items-center justify-center rounded-full ">
                   <img src={send} className="max-w-[30px] " alt="icon" />
@@ -302,9 +314,9 @@ function AboutUs() {
           </ul>
         </div>
       </div>
-      <div className="md:px-60 px-4 py-10  relative">
+      <div className="md:px-60 px-4 py-10 relative">
         <img
-          className="relative w-full max-w-[500px] mb-5 "
+          className="relative md:mb-40 w-full max-w-[500px] mb-5 "
           src={frame1}
           alt=""
         />
@@ -325,11 +337,15 @@ function AboutUs() {
           </div>
           <h3 className="capitalize text-[26px] font-normal ">team members</h3>
         </div>
-        <div className="flex items-center flex-wrap md:flex-nowrap gap-y-5 mt-12 justify-center gap-x-4">
+        <div className="flex items-center pb-10 flex-wrap md:flex-nowrap gap-y-5 mt-12 justify-center gap-x-4">
           {teamMembers.map((member) => (
             <div className="relative bg-[#E1E1E1] pb-15 " key={member.image}>
-              <img className="max-w-[200px] " src={member.image} alt="" />
-              <div className="px-5 py-3 bg-[#008DFF] text-[#fff] absolute text-center left-[22px] bottom-4 ">
+              <img
+                className="max-w-[300px] md:max-w-[250px] w-full "
+                src={member.image}
+                alt=""
+              />
+              <div className="px-5 py-3 bg-[#008DFF] text-[#fff] absolute text-center left-[70px] md:left-[48px] bottom-4 ">
                 <h4 className="text-[16px] font-medium ">{member.name}</h4>
                 <p className="text-sm font-normal">{member.position}</p>
               </div>

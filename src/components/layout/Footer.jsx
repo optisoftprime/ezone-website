@@ -37,7 +37,7 @@ export default function Footer() {
   }
 
   return (
-    <div className="bg-[#000] text-white px-4 mt-20 pt-10 ">
+    <div className="bg-[#000] text-white px-4 pt-10 ">
       <div className="relative pt-15 flex h-[200px] ">
         <img
           className="absolute hidden md:block bottom-0 left-0 max-w-[738px] "
@@ -63,7 +63,7 @@ export default function Footer() {
         {/* <div className="absolute bottom-0 right-0"></div> */}
       </div>
       <div>
-        <div className="flex flex-wrap gap-y-5 justify-center gap-x-10 py-20">
+        <div className="flex flex-wrap gap-y-5 md:justify-center gap-x-15 py-20">
           <div className="max-w-[250px] w-full flex gap-y-5 flex-col ">
             <div>
               <img className="max-w-[100px] " src={logo} alt="logo" />
@@ -77,19 +77,19 @@ export default function Footer() {
             <h4>Quicl Link</h4>
             <ul className="text-sm font-normal text-[#707B8E] flex gap-y-3 flex-col ">
               <li>
-                <Link>Products</Link>
+                <Link to={"/"}>Products</Link>
               </li>
               <li>
-                <Link>Solution</Link>
+                <Link to={"/support-and-services"}>Solution</Link>
               </li>
               <li>
-                <Link>Support & Services</Link>
+                <Link to={"/support-and-services"}>Support & Services</Link>
               </li>
               <li>
-                <Link>About Us</Link>
+                <Link to={"/about-us"}>About Us</Link>
               </li>
               <li>
-                <Link>Contact</Link>
+                <Link to={"/contact-us"}>Contact</Link>
               </li>
             </ul>
           </div>
@@ -124,7 +124,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div>
+        <div className="flex items-center justify-center">
           <p className="text-sm font-normal text-[#707B8E]">
             Copyright ©2025 All rights reserved | Ezone Solutions
           </p>

@@ -6,22 +6,19 @@ import MessageModal from "./MessageModal";
 export default function NormalContact() {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-  const handleOpen = () => {
-    setIsOpen((prev) => !prev);
-  };
 
-  const handleRoute = () => {
-    navigate("/support-and-services/chat");
-  };
+  const handleOpen = () => setIsOpen(true);
+  const handleClose = () => setIsOpen(false);
+  const handleRoute = () => navigate("/support-and-services/chat");
 
   return (
     <div>
-      <MessageModal openModal={isOpen} />
+      <MessageModal openModal={isOpen} onClose={handleClose} />
 
-      <div className=" px-4 md:px-50 py-10 ">
-        <h3 className="text-[20px] font-medium mt-5 ">
-          frequently asked
-          <span className="px-2 py-1 rounded-[8px] bg-[#008DFF] text-white !rotate-45  ">
+      <div className="px-4 md:px-50 py-10">
+        <h3 className="text-[20px] font-medium mt-5">
+          frequently asked{" "}
+          <span className="px-2 py-1 rounded-[8px] bg-[#008DFF] text-white">
             Questions
           </span>
         </h3>
@@ -80,21 +77,22 @@ export default function NormalContact() {
           />
         </div>
       </div>
-      <div className="contact py-10 mb-[20rem] ">
-        <div className="flex items-center justify-center flex-col gap-y-5 max-w-[400px] mx-auto text-center ">
-          <h4 className="capitalize text-[25px] font-semibold ">
-            contact use for any issues available
+
+      <div className="contact py-10 ">
+        <div className="flex items-center justify-center flex-col gap-y-5 max-w-[400px] mx-auto text-center">
+          <h4 className="capitalize text-[25px] font-semibold">
+            contact us for any issues
           </h4>
           <div className="flex items-center gap-x-3">
             <button
               onClick={handleOpen}
-              className="px-10 py-2 cursor-pointer rounded-[30px] text-sm bg-white text-[#008DFF] "
+              className="px-5 md:px-10 cursor-pointer py-2 rounded-[30px] text-sm bg-white text-[#008DFF]"
             >
               Contact Us
             </button>
             <button
               onClick={handleRoute}
-              className="px-10 py-2 text-sm rounded-[30px] border cursor-pointer border-[#fff] text-[#008DFF] "
+              className="px-5 cursor-pointer md:px-10 py-2 text-sm rounded-[30px] border border-white text-white"
             >
               Chat With Us Live
             </button>

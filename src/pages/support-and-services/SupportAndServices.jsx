@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/img/logo.png";
 import { useState } from "react";
@@ -100,13 +100,18 @@ function SupportAndServices() {
     console.log(path);
   };
 
-  const handleDropDown = () => {
-    setDropDown((prev) => !prev);
+  const handleOpenDropDown = () => {
+    setDropDown(true);
+  };
+  const handleCloseDropDown = () => {
+    setDropDown(false);
   };
 
-  const isActive = (path) => {
-    return location.pathname === path;
-  };
+  useEffect(() => {
+    setDropDown(false);
+  }, [location.pathname]);
+
+  const isActive = (path) => location.pathname.includes(path);
   return (
     <div>
       <div className="header3">
@@ -126,8 +131,16 @@ function SupportAndServices() {
                     <li key={navMenu.path}>
                       <Link
                         to={navMenu.path}
-                        onMouseOver={handleDropDown}
-                        className="text-[#fff] text-base font-normal flex items-center gap-x-1 "
+                        onMouseOver={
+                          navMenu.subMenus && !dropDown
+                            ? handleOpenDropDown
+                            : handleCloseDropDown
+                        }
+                        className={`text-[#fff] text-base capitalize font-normal flex items-center gap-x-1 ${
+                          isActive(navMenu.path)
+                            ? "border-[#fff] border-b-2 "
+                            : ""
+                        }`}
                       >
                         <span>{navMenu.name}</span>
                         {navMenu.subMenus && (

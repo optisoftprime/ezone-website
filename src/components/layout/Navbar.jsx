@@ -1,6 +1,6 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/img/logo.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import send from "../../assets/img/send-icon.svg";
 import card from "../../assets/img/card-icon.svg";
 import { ChevronDown, ChevronRight, ChevronUp, Menu } from "lucide-react";
@@ -96,13 +96,18 @@ const Navbar = () => {
     setDrawerVisible((prev) => !prev);
   };
 
-  const handleDropDown = () => {
-    setDropDown((prev) => !prev);
+  const handleOpenDropDown = () => {
+    setDropDown(true);
+  };
+  const handleCloseDropDown = () => {
+    setDropDown(false);
   };
 
-  const isActive = (path) => {
-    return location.pathname === path;
-  };
+  useEffect(() => {
+    setDropDown(false);
+  }, [location.pathname]);
+
+  const isActive = (path) => location.pathname.includes(path);
 
   return (
     <nav className="bg-white shadow-lg">
@@ -118,8 +123,14 @@ const Navbar = () => {
                 <li key={navMenu.path}>
                   <Link
                     to={navMenu.path}
-                    onMouseOver={handleDropDown}
-                    className="text-[#292929] text-base font-normal flex items-center gap-x-1 "
+                    onMouseOver={
+                      navMenu.subMenus && !dropDown
+                        ? handleOpenDropDown
+                        : handleCloseDropDown
+                    }
+                    className={`text-[#292929] text-base capitalize font-normal flex items-center gap-x-1 ${
+                      isActive(navMenu.path) ? "border-[#048DFD] border " : ""
+                    }`}
                   >
                     <span>{navMenu.name}</span>
                     {navMenu.subMenus && (
@@ -138,7 +149,9 @@ const Navbar = () => {
                           <li
                             key={childNavMenu.path}
                             onClick={() => handleRoute(childNavMenu.path)}
-                            className="max-w-[300px] p-3 bg-[#F7FCFF] rounded-sm cursor-pointer flex gap-y-2 flex-col "
+                            className={`max-w-[300px] p-3 bg-[#F7FCFF] rounded-sm cursor-pointer flex gap-y-2 flex-col ${
+                              isActive(childNavMenu.path) ? "shadow-lg" : ""
+                            } `}
                           >
                             <div className="flex items-center gap-x-2">
                               <div className="w-[40px] h-[40px] bg-[#048DFD] flex items-center justify-center rounded-full ">

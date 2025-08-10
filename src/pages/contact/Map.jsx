@@ -41,7 +41,7 @@ export default function Map() {
   }
 
   return (
-    <div className="w-full h-[400px]">
+    <div className="w-full h-[500px]">
       <MapContainer
         center={{ lat: 51.505, lng: -0.09 }}
         zoom={13}
