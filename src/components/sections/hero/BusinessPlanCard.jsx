@@ -1,4 +1,5 @@
 import React from "react";
+import { handleRoute } from "../../../utis/route-function";
 
 export default function BusinessPlanCard({
   className,
@@ -21,6 +22,7 @@ export default function BusinessPlanCard({
       <div>{secondChildren}</div>
       <div className="flex items-center justify-center gap-y-2 flex-col">
         <button
+          onClick={handleRoute}
           className={`rounded-[16px] text-sm px-5 cursor-pointer py-1.5 ${buttonClass} `}
         >
           Start Free 14 Days Trial

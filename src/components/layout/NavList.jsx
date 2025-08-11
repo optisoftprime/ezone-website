@@ -6,7 +6,7 @@ import card from "../../assets/img/card-icon.svg";
 
 const navLists = [
   {
-    name: "products",
+    name: "Products",
     path: "/#",
     subMenus: [
       {
@@ -66,11 +66,11 @@ const navLists = [
     ],
   },
   {
-    name: "support & services",
+    name: "Support & Services",
     path: "/support-and-services",
   },
   {
-    name: "about us",
+    name: "about Us",
     path: "/about-us",
   },
   {
@@ -102,15 +102,15 @@ export default function NavList() {
     <div className="relative">
       <ul className="flex flex-col gap-y-3 ">
         {navLists.map((navMenu) => (
-          <li className="py-2" key={navMenu.path}>
+          <li className="py-2 capitalize" key={navMenu.path}>
             <Link
               to={navMenu.path}
-              onMouseOver={
+              onClick={
                 navMenu.subMenus && !dropDown
                   ? handleOpenDropDown
                   : handleCloseDropDown
               }
-              className={`${
+              className={`!capitalize ${
                 isActive(navMenu.path)
                   ? "!bg-blue-600 !text-[#fff] "
                   : "!text-[#292929] "
@@ -133,7 +133,7 @@ export default function NavList() {
                     <li
                       key={childNavMenu.path}
                       onClick={() => handleRoute(childNavMenu.path)}
-                      className={`max-w-[300px] p-1 rounded-[5px] cursor-pointer flex gap-y-2 flex-col ${
+                      className={`max-w-[300px] capitalize p-1 rounded-[5px] cursor-pointer flex gap-y-2 flex-col ${
                         isActive(childNavMenu.path)
                           ? "!bg-blue-600 !text-[#fff] "
                           : "!text-[#292929] "
