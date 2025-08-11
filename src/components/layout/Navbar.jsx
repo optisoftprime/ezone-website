@@ -123,7 +123,7 @@ const Navbar = () => {
                 <li key={navMenu.path}>
                   <Link
                     to={navMenu.path}
-                    onMouseOver={
+                    onMouseEnter={
                       navMenu.subMenus && !dropDown
                         ? handleOpenDropDown
                         : handleCloseDropDown
