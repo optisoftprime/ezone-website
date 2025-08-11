@@ -3,6 +3,7 @@ import Desktop from "../../../../assets/img/desktop.svg";
 import Mouse from "../../../../assets/img/mouse.svg";
 import Keyboard from "../../../../assets/img/keyboard.svg";
 import zigzag from "../../../../assets/img/zigzag.svg";
+import { handleRoute } from "../../../../utis/route-function";
 
 export default function HeroSection({
   headText,
@@ -24,7 +25,10 @@ export default function HeroSection({
         <h3 className="text-[35px] font-bold">Ezone</h3>
         <h3 className="text-[35px] font-bold ">{headText}</h3>
         <p className="text-base font-normal mt-5 ">{paragraph}</p>
-        <button className="py-1.5 px-3 mt-5 bg-[#0C0292] cursor-pointer rounded-[30px] text-[#fff] text-sm font-medium ">
+        <button
+          onClick={handleRoute}
+          className="py-1.5 px-3 mt-5 bg-[#0C0292] cursor-pointer rounded-[30px] text-[#fff] text-sm font-medium "
+        >
           Get Started
         </button>
         {showZigzagBottom && (
@@ -39,7 +43,7 @@ export default function HeroSection({
         <div className="relative">
           <img className="relative w-full " src={Desktop} alt="" />
           <img
-            className="absolute top-[4px] md:top-[13.6px] w-full max-w-[535px] left-[2px] md:left-[16.5px]"
+            className="absolute top-[4px] md:top-[13.6px] w-full max-w-[550px] left-[2px] md:left-[16.5px]"
             src={image}
             alt=""
           />

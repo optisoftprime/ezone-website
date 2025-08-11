@@ -3,6 +3,7 @@ import halfcircle from "../../assets/img/half-circle.svg";
 import kite from "../../assets/img/kite.svg";
 import logo from "../../assets/img/logo.png";
 import { Link, useLocation } from "react-router-dom";
+import { handleRoute } from "../../utis/route-function";
 
 export default function Footer() {
   const location = useLocation();
@@ -45,12 +46,15 @@ export default function Footer() {
           alt=""
         />
         {/* <div className="absolute bottom-0 left-0"></div> */}
-        <div className="flex items-center justify-center flex-wrap gap-y-2 gap-x-20 pb-20 mx-auto">
+        <div className="flex items-center justify-center flex-wrap z-10 gap-y-2 gap-x-20 pb-20 mx-auto">
           <h1 className="text-[30px] font-bold max-w-[500px] ">
             {headingText}
           </h1>
           <div>
-            <button className="bg-[#008DFF] px-4 py-1.5 rounded-[16px] text-sm cursor-pointer text-white ">
+            <button
+              onClick={handleRoute}
+              className="bg-[#008DFF] px-4 py-1.5 rounded-[16px] text-sm cursor-pointer text-white "
+            >
               Start My Free Trial
             </button>
           </div>
@@ -74,7 +78,7 @@ export default function Footer() {
             </p>
           </div>
           <div className="max-w-[150px] w-full flex gap-y-5 flex-col">
-            <h4>Quicl Link</h4>
+            <h4>Quick Link</h4>
             <ul className="text-sm font-normal text-[#707B8E] flex gap-y-3 flex-col ">
               <li>
                 <Link to={"/"}>Products</Link>
@@ -97,7 +101,7 @@ export default function Footer() {
             <h4>Support & Services</h4>
             <ul className="text-sm font-normal text-[#707B8E] flex gap-y-3 flex-col ">
               <li>
-                <Link>Report a bug</Link>
+                <Link to={"/contact-us"}>Report a bug</Link>
               </li>
               <li>
                 <Link>Privacy Policy</Link>
@@ -106,10 +110,10 @@ export default function Footer() {
                 <Link>Terms and Conditons</Link>
               </li>
               <li>
-                <Link>Site Map</Link>
+                <Link to={"/contact-us"}>Site Map</Link>
               </li>
               <li>
-                <Link>FAQs</Link>
+                <Link to={"/support-and-services"}>FAQs</Link>
               </li>
             </ul>
           </div>
@@ -118,7 +122,10 @@ export default function Footer() {
               Ezone Solution is a Cloud-based ERP Application.
             </p>
             <div>
-              <button className="bg-[#008DFF] px-4 py-1.5 rounded-[16px] text-sm cursor-pointer text-white ">
+              <button
+                onClick={handleRoute}
+                className="bg-[#008DFF] px-4 py-1.5 rounded-[16px] text-sm cursor-pointer text-white "
+              >
                 Start My Free Trial
               </button>
             </div>

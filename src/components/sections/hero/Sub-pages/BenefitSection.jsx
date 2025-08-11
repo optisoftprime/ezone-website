@@ -4,6 +4,7 @@ import Mouse from "../../../../assets/img/mouse.svg";
 import Keyboard from "../../../../assets/img/keyboard.svg";
 import ellipse from "../../../../assets/img/ellipse12.svg";
 import zigzag from "../../../../assets/img/zigzag.svg";
+import { useNavigate } from "react-router-dom";
 
 export default function BenefitSection({
   image,
@@ -12,6 +13,8 @@ export default function BenefitSection({
   listName,
   showZigzag = false,
 }) {
+  const navigate = useNavigate();
+
   return (
     <div
       style={{ background: bgColor }}
@@ -30,7 +33,7 @@ export default function BenefitSection({
             alt=""
           />
           <img
-            className="absolute w-full top-[6px] md:top-[12.6px] left-[2px] md:left-[16px] max-w-[475px] "
+            className="absolute w-full top-[6px] md:top-[12.6px] left-[2px] md:left-[16px] max-w-[480px] "
             src={image}
             alt=""
           />
@@ -51,7 +54,10 @@ export default function BenefitSection({
         </h4>
         <div>{list}</div>
         <div className="mt-5">
-          <button className="py-2 px-4 bg-[#008DFF] rounded-[30px] inline-block cursor-pointer text-white text-base font-normal ">
+          <button
+            onClick={() => navigate("https://core.ezoneerp.com/")}
+            className="py-2 px-4 bg-[#008DFF] rounded-[30px] inline-block cursor-pointer text-white text-base font-normal "
+          >
             Start My Free Trial
           </button>
         </div>
