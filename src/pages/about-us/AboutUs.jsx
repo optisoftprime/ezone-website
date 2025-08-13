@@ -12,7 +12,6 @@ import frame3 from "../../assets/img/frame3.svg";
 import frame4 from "../../assets/img/frame4.svg";
 import frame5 from "../../assets/img/frame5.svg";
 import frame6 from "../../assets/img/frame6.svg";
-import { div } from "framer-motion/client";
 import { Drawer } from "antd";
 import NavList from "../../components/layout/NavList";
 
@@ -246,7 +245,7 @@ function AboutUs() {
                 <div className="flex gap-x-5 items-center">
                   <a href="https://core.ezoneerp.com/">Login</a>
                   <a
-                    href="https://core.ezoneerp.com/"
+                    href="https://core.ezoneerp.com/register"
                     className="px-5 py-2 rounded-[20px] bg-[#0C0292] text-white "
                   >
                     Sign Up

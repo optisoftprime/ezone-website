@@ -1,43 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import BusinessPlanCard from "./hero/BusinessPlanCard";
-import { data } from "react-router-dom";
 import { CircleCheck } from "lucide-react";
 
 const basicDatas = [
-  "Access to Accounting Module",
-  "Basic HR (Employee records)",
-  "Sales/Inventory (Limited to Core Tracking)",
-  "Payroll (Up to 20 Employees)",
-  "Email Support",
-  "5GB Storage",
-  "1 Admin User + 5 staff Users",
+  "Supports 1-10 Users",
+  "Access to Core Modules",
+  "Basic Reporting and Analytics",
+  "Email Support Only",
+  "Free Applications (CRM, File Management, Task Management)",
+  "Basic Task and Workflow Management",
 ];
 
-const professionalDatas = [
-  "Full HR Suite",
-  "Advance Sales & Inventory",
-  "Full-Feature CRM",
-  "Learning Management System (LMS)",
-  "Process Workflow Automation",
-  "In app Communication",
-  "Role Based Access Control",
-  "50GB Access Control",
-  "2 Admin Users + 20 Staffs",
+const premiumDatas = [
+  "Support 250 Users",
+  "Full Access to Ezone Modules",
+  "Advanced Workflow Aumation & Role Based Access",
+  "Priority Support (Chat, Email, Phone)",
+  "Dedicated Account Manager",
+  "Data Migration Support included",
 ];
 
-const AdvancedDatas = [
-  "Core Banking Application (CBA)",
-  "Mutuary Management Module",
-  "Custom Workflow & Integrations",
-  "Advance Analytics & Custom Reports",
-  "Priority Support (Email, phone, chat)",
-  "500 GB storage",
-  "Unlimited users",
-  "SLA-backed Uptime Guarantee",
-  "API Access and White label Option",
+const customDatas = [
+  "Unlimited Users (Based on need)",
+  "Ful Feature Customization Per Module",
+  "24/7 Premium Support",
+  "SLA-Backed Performance & Uptime Guarantee",
+  "Dedicated Onboarding & Training for Teams",
+];
+
+const activePlan = [
+  { path: "monthly", name: "Monthly" },
+  { path: "quarterly", name: "Quarterly" },
+  { path: "yearly", name: "Yearly (Save up to 18%)" },
 ];
 
 export default function BusinessPlan() {
+  const [isActive, setIsActive] = useState("monthly");
+
+  const handleActive = (path) => setIsActive(path);
+
   return (
     <div className="pt-20 pb-15 px-4 md:px-15">
       <div className="flex items-center justify-center flex-col gap-y-3 max-w-[900px] mx-auto text-center ">
@@ -49,25 +50,35 @@ export default function BusinessPlan() {
           you're just starting out or scaling operations. No hidden fees, just
           powerful features.
         </p>
-        <div className="text-sm font-normal w-full max-w-[439px] border-[#000] border flex items-center mt-20 ">
-          <p className="bg-[#000] text-white px-15 py-2 ">Monthly</p>
-          <p className="px-10 py-1.5 flex items-center gap-x-4">
-            <span>Yearly</span>
-            <span className="bg-[#F9D783] py-[2px] px-1 ">Save 20%</span>
-          </p>
+        <div className="text-sm font-normal gap-x-1.5 w-full max-w-[439px] flex justify-center items-center mt-20 ">
+          {activePlan.map((plan, planIndex) => (
+            <button
+              onClick={() => handleActive(plan.path)}
+              className={`border-[#000] px-2.5 rounded-sm py-2 border ${
+                isActive === plan.path ? "bg-[#000] text-white" : ""
+              }`}
+              key={planIndex}
+            >
+              {plan.name}
+            </button>
+          ))}
         </div>
       </div>
-      <div className="flex gap-x-8 gap-y-5 flex-wrap md:flex-nowrap max-w-[1000px] mt-15 mx-auto justify-between">
-        <div className="md:pt-20">
+      <div className="flex gap-x-8 gap-y-5 flex-wrap md:flex-nowrap max-w-[1000px] mt-15 mx-auto sm:justify-center md:justify-between">
+        <div className="">
           <BusinessPlanCard
+            active={isActive}
+            activeKey="monthly"
             secondChildren={
               <ul className="flex flex-col gap-y-4">
                 {basicDatas.map((data, index) => (
-                  <li key={index} className="flex gap-x-2">
+                  <li key={index} className="flex gap-x-2 text-base ">
                     <span>
                       <CircleCheck
-                        className="bg-[#000] border-0 rounded-full "
-                        color="#fff"
+                        className={`bg-[#000] border-0 rounded-full ${
+                          isActive === "monthly" ? "bg-[#fff]" : ""
+                        }`}
+                        color={`${isActive === "monthly" ? "#153ABF" : "#fff"}`}
                       />
                     </span>
                     <span>{data}</span>
@@ -75,13 +86,11 @@ export default function BusinessPlan() {
                 ))}
               </ul>
             }
-            className="border-[#153ABF]  "
-            buttonClass="text-white bg-[#0C0292] "
-            cardPrice={19}
+            cardPrice={`100,000.00`}
           >
             <div className="flex gap-y-6 flex-col ">
               <div>
-                <p className="text-base font-medium py-1.5 px-2.5 bg-[#F1F1F1] rounded-[8px] inline uppercase ">
+                <p className="text-sm text-[#000B33] font-medium py-1.5 px-2.5 bg-[#F1F1F1] rounded-[8px] inline uppercase">
                   Basic
                 </p>
               </div>
@@ -94,14 +103,20 @@ export default function BusinessPlan() {
         </div>
         <div>
           <BusinessPlanCard
+            active={isActive}
+            activeKey="quarterly"
             secondChildren={
               <ul className="flex flex-col gap-y-3">
-                {professionalDatas.map((data, index) => (
-                  <li key={index} className="flex gap-x-2">
+                {premiumDatas.map((data, index) => (
+                  <li key={index} className="flex gap-x-2 text-base ">
                     <span>
                       <CircleCheck
-                        className="bg-[#fff] border-0 rounded-full "
-                        color="#153ABF"
+                        className={`bg-[#000] border-0 rounded-full ${
+                          isActive === "quarterly" ? "bg-[#fff]" : ""
+                        }`}
+                        color={`${
+                          isActive === "quarterly" ? "#153ABF" : "#fff"
+                        }`}
                       />
                     </span>
                     <span>{data}</span>
@@ -109,39 +124,35 @@ export default function BusinessPlan() {
                 ))}
               </ul>
             }
-            className="bg-[#000B6B] text-white shadow-lg "
-            buttonClass="text-[#0C0292] bg-[#fff] "
-            cardPrice={49}
+            cardPrice={`250,000.00`}
           >
             <div className="flex gap-y-4 flex-col">
               <div>
-                <p className="text-[12px] font-medium py-[2px] px-1.5 bg-[#F1F1F1] text-[#000B6B] rounded-sm inline">
-                  Popular
-                </p>
-              </div>
-              <div>
-                <p className="text-base font-medium py-1.5 px-2.5 bg-[#fff] text-[#000B33] rounded-[8px] inline uppercase">
-                  PROFESSIONALS
+                <p className="text-sm font-medium py-1.5 px-2.5 bg-[#fff] text-[#000B33] rounded-[8px] inline uppercase">
+                  Premium
                 </p>
               </div>
               <p className="text-sm font-normal">
-                Best for growing businesses with moderate operational
-                complexity.Includes everything in Basic, plus:
+                Perfect for enterprises and organizations needing control and
+                insights
               </p>
             </div>
-            <div></div>
           </BusinessPlanCard>
         </div>
-        <div className="md:pt-20">
+        <div className="">
           <BusinessPlanCard
+            active={isActive}
+            activeKey="yearly"
             secondChildren={
               <ul className="flex flex-col gap-y-3">
-                {AdvancedDatas.map((data, index) => (
-                  <li key={index} className="flex gap-x-2">
+                {customDatas.map((data, index) => (
+                  <li key={index} className="flex gap-x-2 text-base ">
                     <span>
                       <CircleCheck
-                        className="bg-[#000] border-0 rounded-full "
-                        color="#fff"
+                        className={`bg-[#000] border-0 rounded-full ${
+                          isActive === "yearly" ? "bg-[#fff]" : ""
+                        }`}
+                        color={`${isActive === "yearly" ? "#153ABF" : "#fff"}`}
                       />
                     </span>
                     <span>{data}</span>
@@ -149,21 +160,20 @@ export default function BusinessPlan() {
                 ))}
               </ul>
             }
-            cardPrice={99}
-            buttonClass="text-white bg-[#0C0292] "
+            cardPrice={`Flexible`}
           >
             <div className="flex gap-y-5 flex-col">
               <div>
-                <p className="text-base font-medium py-1.5 px-2.5 bg-[#F1F1F1] rounded-[8px] inline uppercase">
-                  ADVANCED
+                <p className="text-sm font-medium py-1.5 px-2.5 bg-[#F1F1F1] text-[#000B33] rounded-[8px] inline uppercase">
+                  Custom
                 </p>
               </div>
               <p className="text-sm font-normal">
-                perfect for enterprises and organizations with complex
-                operations includes everything in professionals , plus
+                Perfect for larger scale enterprises and organizations with
+                complex workflow, compliance needs, and specialized operational
+                requirements
               </p>
             </div>
-            <div></div>
           </BusinessPlanCard>
         </div>
       </div>

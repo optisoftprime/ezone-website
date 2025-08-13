@@ -203,7 +203,7 @@ function SupportAndServices() {
                 <div className="flex gap-x-5 items-center">
                   <a href="https://core.ezoneerp.com/">Login</a>
                   <a
-                    href="https://core.ezoneerp.com/"
+                    href="https://core.ezoneerp.com/register"
                     className="px-5 py-2 rounded-[20px] bg-[#0C0292] text-white "
                   >
                     Sign Up

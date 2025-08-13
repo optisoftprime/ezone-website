@@ -165,6 +165,20 @@ export default function NavList() {
           </li>
         ))}
       </ul>
+      <div className="flex gap-x-5 flex-col gap-y-3">
+        <a
+          href="https://core.ezoneerp.com/"
+          className="px-5 py-2 rounded-[20px] !text-[#0C0292] border border-[#0c0292] !bg-white"
+        >
+          Login
+        </a>
+        <a
+          href="https://core.ezoneerp.com/register"
+          className="px-5 py-2 rounded-[20px] !bg-[#0C0292] !text-white "
+        >
+          Sign Up
+        </a>
+      </div>
     </div>
   );
 }
