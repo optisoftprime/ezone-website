@@ -6,12 +6,12 @@ import send from "../../assets/img/send-icon.svg";
 import card from "../../assets/img/card-icon.svg";
 import { ChevronDown, ChevronRight, ChevronUp, Dot, Menu } from "lucide-react";
 // import frame from "../../assets/img/frame.svg"
-import frame1 from "../../assets/img/frame1.svg";
-import frame2 from "../../assets/img/frame2.svg";
-import frame3 from "../../assets/img/frame3.svg";
-import frame4 from "../../assets/img/frame4.svg";
-import frame5 from "../../assets/img/frame5.svg";
-import frame6 from "../../assets/img/frame6.svg";
+import frame1 from "../../assets/img/frame1.png";
+import frame2 from "../../assets/img/frame2.png";
+import frame3 from "../../assets/img/frame3.png";
+import frame4 from "../../assets/img/frame4.png";
+import frame5 from "../../assets/img/frame5.png";
+import frame6 from "../../assets/img/frame6.png";
 import { div } from "framer-motion/client";
 import { Drawer } from "antd";
 import NavList from "../../components/layout/NavList";
@@ -174,7 +174,7 @@ function AboutUs() {
                     <li key={navMenu.path}>
                       <Link
                         to={navMenu.path}
-                        onMouseOver={
+                        onMouseEnter={
                           navMenu.subMenus && !dropDown
                             ? handleOpenDropDown
                             : handleCloseDropDown
@@ -286,7 +286,7 @@ function AboutUs() {
             <h2 className="text-[30px] font-normal max-w-[370px] ">
               Why Coose Ezone- What Set Us Apart
             </h2>
-            <p className="max-w-[330px] ">
+            <p className="w-full md:max-w-[330px] ">
               We don’t just give you software, we walk with you. Our team offers
               dedicated onboarding and guidance. Count on us for help when you
               need it most.
@@ -319,12 +319,12 @@ function AboutUs() {
       </div>
       <div className="md:px-60 px-4 py-10 relative">
         <img
-          className="relative md:mb-40 w-full max-w-[500px] mb-5 "
+          className="relative md:mb-40 w-full max-w-[500px] mb-5 rounded-md "
           src={frame1}
           alt=""
         />
         <img
-          className="md:absolute w-full md:top-20 md:right-60 max-w-[400px] "
+          className="md:absolute w-full md:top-20 md:right-60 max-w-[400px]  rounded-md"
           src={frame2}
           alt=""
         />

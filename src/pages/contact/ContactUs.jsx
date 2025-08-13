@@ -131,7 +131,7 @@ function ContactUs() {
                     <li key={navMenu.path}>
                       <Link
                         to={navMenu.path}
-                        onMouseOver={
+                        onMouseEnter={
                           navMenu.subMenus && !dropDown
                             ? handleOpenDropDown
                             : handleCloseDropDown
@@ -234,7 +234,7 @@ function ContactUs() {
         <Form />
       </div>
       <div className="">
-        <p className="text-base font-medium text-[#3D3C7F] md:ml-15 mx-3 ">
+        <p className="text-base font-medium text-[#3D3C7F] md:ml-15 mx-3 py-5">
           4TH FLOOR, POLARIS BUILDING, 30 MARINA STREET
         </p>
         <Map />

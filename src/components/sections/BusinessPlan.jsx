@@ -57,7 +57,7 @@ export default function BusinessPlan() {
           </p>
         </div>
       </div>
-      <div className="flex gap-x-8 gap-y-5 flex-wrap md:flex-nowrap max-w-[1000px] mt-15 mx-auto justify-between">
+      <div className="flex items-center justify-center gap-x-8 gap-y-5 flex-wrap md:flex-nowrap max-w-[1000px] mt-15 mx-auto md:justify-between">
         <div className="md:pt-20">
           <BusinessPlanCard
             secondChildren={
