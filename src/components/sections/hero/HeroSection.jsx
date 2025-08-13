@@ -277,7 +277,7 @@ const HeroSection = () => {
       <div className="absolute top-40 right-64 w-36 h-18 bg-white opacity-35 rounded-full"></div>
 
       <div className="relative z-10 container mx-auto px-6 md:pt-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
+        <div className="grid lg:grid-cols-2  items-center min-h-[80vh]">
           {/* Left Content */}
           <div className="space-y-8">
             <div className="space-y-6">
@@ -298,35 +298,19 @@ const HeroSection = () => {
 
             <button
               onClick={handleRoute}
-              className="bg-[#0c0292] hover:bg-[#0c0292] text-white font-semibold px-8 py-4 rounded-full text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
+              className="bg-[#0c0292] hover:bg-[#0c0292] text-white cursor-pointer font-semibold px-8 py-4 rounded-full text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
             >
               Start My Free Trial
             </button>
           </div>
 
           {/* Right Content - Dashboard Preview */}
-          <div className="hidden md:block relative">
-            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden transform rotate-2 hover:rotate-0 transition-transform duration-300">
-              {/* Dashboard Header */}
-              {/* <div className="bg-blue-600 text-white p-4">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-                      <div className="w-4 h-4 bg-blue-600 rounded"></div>
-                    </div>
-                    <span className="font-semibold">E ZONE</span>
-                  </div>
-                  <div className="flex space-x-1">
-                    <div className="w-3 h-3 bg-red-400 rounded-full"></div>
-                    <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                    <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                  </div>
-                </div>
-              </div> */}
-
-              {/* Dashboard Content */}
-
-              <img src={appImage} />
+          <div className="hidden md:flex relative justify-end">
+            {/* <div className=" rounded-2xl shadow-2xl overflow-hidden transform rotate-2 hover:rotate-0 transition-transform duration-300">
+              <img src={appImage} alt="app image" className="object-fit  "/>
+            </div> */}
+            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden transform rotate-2 hover:rotate-0 transition-transform duration-300 w-[30rem]">
+              <img src={appImage} alt="app image" className="w-full h-auto object-contain" />
             </div>
 
             {/* Floating Calendar Widget */}

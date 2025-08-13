@@ -10,7 +10,7 @@ export default function BusinessPlanCard({
 }) {
   return (
     <div
-      className={`p-7 w-full max-w-[365px] border flex flex-col gap-y-4 rounded-[10px] ${className} `}
+      className={`p-7 w-full max-w-[365px]  md:min-h-[130vh] border flex flex-col gap-y-4 rounded-[10px] ${className} `}
     >
       <div>
         <div>{children}</div>

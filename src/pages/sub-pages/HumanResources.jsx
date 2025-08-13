@@ -32,7 +32,7 @@ export default function HumanResources() {
         <ReasonCard
           number="01"
           text="Centralize Employee Management"
-          textColor="#38A4FF"
+          textColor="#0461B0"
           boxBg="#EBEBEB"
           circleBg="#38A4FF"
           circleColor="#fff"
@@ -40,7 +40,7 @@ export default function HumanResources() {
         <ReasonCard
           number="02"
           text="Automated HR Processes"
-          textColor="#38A4FF"
+          textColor="#0461B0"
           boxBg="#EBEBEB"
           circleBg="#38A4FF"
           circleColor="#fff"
@@ -48,7 +48,7 @@ export default function HumanResources() {
         <ReasonCard
           number="03"
           text="Real Time insights & reporting"
-          textColor="#38A4FF"
+          textColor="#0461B0"
           boxBg="#EBEBEB"
           circleBg="#38A4FF"
           circleColor="#fff"
@@ -56,7 +56,7 @@ export default function HumanResources() {
         <ReasonCard
           number="04"
           text="Employee self service portal"
-          textColor="#38A4FF"
+          textColor="#0461B0"
           boxBg="#EBEBEB"
           circleBg="#38A4FF"
           circleColor="#fff"

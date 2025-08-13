@@ -21,7 +21,7 @@ export default function ReasonCard({
       </div>
       <p
         style={{ color: textColor }}
-        className={`text-[${textColor}] text-base text-center max-w-[100px] font-normal mx-auto `}
+        className={`text-[${textColor}] text-base text-center max-w-[100px] font-[500] mx-auto `}
       >
         {text}
       </p>

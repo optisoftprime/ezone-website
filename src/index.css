@@ -137,7 +137,7 @@ html {
 .header1 {
   width: 100%;
   background-color: #0a416a7d;
-  background-image: url(./assets//img/bgImage1.svg);
+  background-image: url(./assets//img/bgImage1.png);
   background-size: cover;
   background-repeat: no-repeat;
   /* backdrop-filter: "4px"; */
@@ -148,7 +148,7 @@ html {
 .header2 {
   width: 100%;
   background-color: #0a416a7d;
-  background-image: url(./assets//img/bgImage2.svg);
+  background-image: url(./assets//img/bgImage2.png);
   background-size: cover;
   background-repeat: no-repeat;
   /* backdrop-filter: "4px"; */
@@ -159,7 +159,7 @@ html {
 .header3 {
   width: 100%;
   background-color: #0a416a7d;
-  background-image: url(./assets//img/bgImage3.svg);
+  background-image: url(./assets//img/bgImage3.png);
   background-size: cover;
   background-repeat: no-repeat;
   /* backdrop-filter: "4px"; */
