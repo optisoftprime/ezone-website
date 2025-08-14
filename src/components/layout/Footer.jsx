@@ -38,7 +38,7 @@ export default function Footer() {
   }
 
   return (
-    <div className="bg-[#000] text-white px-4 pt-10 ">
+    <div className="bg-[#000] text-white px-6 md:px-4 py-10 ">
       <div className="relative pt-15 flex h-[200px] ">
         <img
           className="absolute hidden md:block bottom-0 left-0 max-w-[738px] "

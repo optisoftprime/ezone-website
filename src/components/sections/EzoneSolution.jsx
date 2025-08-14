@@ -3,7 +3,8 @@ import hrImage from "../../assets/img/hrImage.svg";
 
 export default function EzoneSolution() {
   return (
-    <div className="flex px-4 items-center py-15 justify-center flex-col gap-y-5 bg-[linear-gradient(to_bottom,_rgba(244,0,91,1),_rgba(0,54,152,1),_rgba(55,0,127,1))]">
+
+    <div className="flex items-center py-15 px-10 justify-center flex-col gap-y-5 bg-[linear-gradient(to_bottom,_rgba(244,0,91,1),_rgba(0,54,152,1),_rgba(55,0,127,1))]">
       <h4 className="text-[25px] font-normal text-white  ">
         Why Ezone ERP Solution?
       </h4>

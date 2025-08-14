@@ -19,18 +19,67 @@ export default defineConfig({
   },
 
   // Optional: Configure build options
-  build: {
-    // Enable CSS code splitting
-    cssCodeSplit: true,
+  // build: {
+  //   // Enable CSS code splitting
+  //   cssCodeSplit: true,
 
-    // Minimize CSS
+  //   // Minimize CSS
+  //   minify: "esbuild",
+
+  //   // Configure rollup options
+  //   rollupOptions: {
+  //     output: {
+  //       // Separate CSS files
+  //       assetFileNames: "assets/[name]-[hash][extname]",
+  //     },
+  //   },
+  // },
+
+  // build: {
+  //   // Enable CSS code splitting
+  //   cssCodeSplit: true,
+
+  //   // Minimize CSS
+  //   minify: "esbuild",
+
+  //   // Configure rollup options
+  //   rollupOptions: {
+  //     output: {
+  //       // Separate CSS files
+  //       assetFileNames: "assets/[name]-[hash][extname]",
+
+  //       // Split vendor chunks
+  //       manualChunks(id) {
+  //         if (id.includes("node_modules")) {
+  //           return id
+  //             .toString()
+  //             .split("node_modules/")[1]
+  //             .split("/")[0]
+  //             .toString();
+  //         }
+  //       },
+  //     },
+  //   },
+  // },
+
+  build: {
+    cssCodeSplit: true,
     minify: "esbuild",
 
-    // Configure rollup options
     rollupOptions: {
       output: {
-        // Separate CSS files
         assetFileNames: "assets/[name]-[hash][extname]",
+
+        // Split vendor chunks for better caching
+        manualChunks(id) {
+          if (id.includes("node_modules")) {
+            return id
+              .toString()
+              .split("node_modules/")[1]
+              .split("/")[0]
+              .toString();
+          }
+        },
       },
     },
   },
