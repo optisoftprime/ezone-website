@@ -6,6 +6,7 @@ import send from "../../assets/img/send-icon.svg";
 import card from "../../assets/img/card-icon.svg";
 import { ChevronDown, ChevronRight, ChevronUp, Dot, Menu } from "lucide-react";
 // import frame from "../../assets/img/frame.svg"
+
 import frame1 from "../../assets/img/frame1.png";
 import frame2 from "../../assets/img/frame2.png";
 import frame3 from "../../assets/img/frame3.png";
@@ -246,7 +247,7 @@ function AboutUs() {
                 <div className="flex gap-x-5 items-center">
                   <a href="https://core.ezoneerp.com/">Login</a>
                   <a
-                    href="https://core.ezoneerp.com/"
+                    href="https://core.ezoneerp.com/register"
                     className="px-5 py-2 rounded-[20px] bg-[#0C0292] text-white "
                   >
                     Sign Up
