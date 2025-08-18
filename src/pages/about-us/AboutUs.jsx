@@ -13,7 +13,6 @@ import frame3 from "../../assets/img/frame3.png";
 import frame4 from "../../assets/img/frame4.png";
 import frame5 from "../../assets/img/frame5.png";
 import frame6 from "../../assets/img/frame6.png";
-import { div } from "framer-motion/client";
 import { Drawer } from "antd";
 import NavList from "../../components/layout/NavList";
 
@@ -155,6 +154,10 @@ function AboutUs() {
     setDropDown(false);
   }, [location.pathname]);
 
+  useEffect(() => {
+    setDrawerVisible(false);
+  }, [location.pathname]);
+
   const isActive = (path) => location.pathname.includes(path);
   return (
     <div>
@@ -283,9 +286,9 @@ function AboutUs() {
               <Dot color="#0C0292" size={60} />
             </div>
           </div>
-          <div className="flex items-center flex-wrap gap-y md:flex-nowrap gap-x-10 justify-between">
+          <div className="flex items-center justify-center flex-wrap gap-y-5 md:flex-nowrap gap-x-10 md:justify-between">
             <h2 className="text-[30px] font-normal max-w-[370px] ">
-              Why Coose Ezone- What Set Us Apart
+              Why Choose Ezone- What Set Us Apart
             </h2>
             <p className="w-full md:max-w-[330px] ">
               We don’t just give you software, we walk with you. Our team offers
@@ -300,11 +303,11 @@ function AboutUs() {
           </div>
         </div>
         <div>
-          <ul className="flex items-center flex-wrap gap-y-5  gap-x-4 justify-between">
+          <ul className="flex items-center mx-auto flex-wrap justify-center md:flex-nowrap gap-y-5  gap-x-4 md:justify-between">
             {aboutData.map((data) => (
               <li
                 key={data.title}
-                className="flex items-center max-w-[400px] gap-x-4 py-1.5 px-3  rounded-[30px] shadow-lg"
+                className="flex items-center max-w-[300px] gap-x-4 py-1.5 px-3  rounded-[30px] shadow-lg"
               >
                 <div className="w-[40px] h-[40px] bg-[#048DFD] flex items-center justify-center rounded-full ">
                   <img src={send} className="max-w-[30px] " alt="icon" />

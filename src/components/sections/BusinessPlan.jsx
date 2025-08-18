@@ -36,6 +36,7 @@ const activePlan = [
 
 export default function BusinessPlan() {
   const [isActive, setIsActive] = useState("monthly");
+  // const [price, setPrice] = useState("monthly");
 
   const handleActive = (path) => setIsActive(path);
 
@@ -53,10 +54,11 @@ export default function BusinessPlan() {
         <div className="text-sm font-normal gap-x-1.5 w-full max-w-[439px] flex justify-center items-center mt-20 ">
           {activePlan.map((plan, planIndex) => (
             <button
-              onClick={() => handleActive(plan.path)}
-              className={`border-[#000] px-2.5 rounded-sm py-2 border ${
-                isActive === plan.path ? "bg-[#000] text-white" : ""
-              }`}
+              // onClick={() => handleActive(plan.path)}
+              // className={`border-[#000] px-2.5 rounded-sm py-2 border ${
+              //   isActive === plan.path ? "bg-[#000] text-white" : ""
+              // }`}
+              className="border-[#000] px-2.5 rounded-sm py-2 border"
               key={planIndex}
             >
               {plan.name}
@@ -91,7 +93,10 @@ export default function BusinessPlan() {
           >
             <div className="flex gap-y-6 flex-col ">
               <div>
-                <p className="text-sm text-[#000B33] font-medium py-1.5 px-2.5 bg-[#F1F1F1] rounded-[8px] inline uppercase">
+                <p
+                  onClick={() => handleActive("monthly")}
+                  className="text-sm text-[#000B33] font-medium py-1.5 px-2.5 bg-[#F1F1F1] rounded-[8px] inline uppercase"
+                >
                   Basic
                 </p>
               </div>
@@ -129,7 +134,10 @@ export default function BusinessPlan() {
           >
             <div className="flex gap-y-4 flex-col">
               <div>
-                <p className="text-sm font-medium py-1.5 px-2.5 bg-[#fff] text-[#000B33] rounded-[8px] inline uppercase">
+                <p
+                  onClick={() => handleActive("quarterly")}
+                  className="text-sm font-medium py-1.5 px-2.5 bg-[#fff] text-[#000B33] rounded-[8px] inline uppercase"
+                >
                   Premium
                 </p>
               </div>
@@ -165,7 +173,10 @@ export default function BusinessPlan() {
           >
             <div className="flex gap-y-5 flex-col">
               <div>
-                <p className="text-sm font-medium py-1.5 px-2.5 bg-[#F1F1F1] text-[#000B33] rounded-[8px] inline uppercase">
+                <p
+                  onClick={() => handleActive("yearly")}
+                  className="text-sm font-medium py-1.5 px-2.5 bg-[#F1F1F1] text-[#000B33] rounded-[8px] inline uppercase"
+                >
                   Custom
                 </p>
               </div>
