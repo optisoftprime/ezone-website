@@ -107,6 +107,10 @@ const Navbar = () => {
     setDropDown(false);
   }, [location.pathname]);
 
+  useEffect(() => {
+    setDrawerVisible(false);
+  }, [location.pathname]);
+
   const isActive = (path) => location.pathname.includes(path);
 
   return (

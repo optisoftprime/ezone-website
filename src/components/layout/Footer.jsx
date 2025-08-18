@@ -67,7 +67,7 @@ export default function Footer() {
         {/* <div className="absolute bottom-0 right-0"></div> */}
       </div>
       <div>
-        <div className="flex flex-wrap gap-y-5 md:justify-center gap-x-15 py-20">
+        <div className="flex flex-wrap gap-y-5 sm:justify-center gap-x-15 py-20">
           <div className="max-w-[250px] w-full flex gap-y-5 flex-col ">
             <div>
               <img className="max-w-[100px] " src={logo} alt="logo" />
